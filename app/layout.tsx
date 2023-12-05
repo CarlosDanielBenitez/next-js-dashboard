@@ -1,4 +1,4 @@
-import { montserrat } from "./ui/fonts";
+import { IBM } from "./ui/fonts";
 import "./ui/global.css"
 export default function RootLayout({
   children,
@@ -7,8 +7,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} antialiased`}>
+      <body className={`${IBM.className} antialiased`}>
         {children}
+        <footer className="py-10 flex justify-center items-center">Web Development ♥</footer>
       </body>
     </html>
   );
