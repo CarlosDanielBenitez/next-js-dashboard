@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { Invoice } from './definitions'
 import { sql } from '@vercel/postgres'
 import { revalidatePath } from 'next/cache'
+import { redirect } from 'next/navigation'
 
 const CreateInvoiceSchema = z.object({
     id: z.string(),
@@ -36,4 +37,5 @@ export async function createInvoice(formData: FormData) {
    VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
    `
    revalidatePath('/dashboard/invoices')
+   redirect('/dashboard/invoices')
 }
